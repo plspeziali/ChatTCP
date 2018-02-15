@@ -16,6 +16,8 @@ public class ChatTCPServer {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Server s = new Server(2000);
+        s.start();
     }
     
 }

@@ -23,6 +23,7 @@ public class Server extends Chatter {
             connection = new ServerSocket(port);
             dataSocket = connection.accept();
             configure();
+            sendMsg();
         } catch(IOException e2){//
             System.err.println(e2);
         }

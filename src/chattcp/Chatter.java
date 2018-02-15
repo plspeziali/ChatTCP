@@ -39,6 +39,7 @@ public class Chatter {
     }
         
     public void sendMsg() {
+        System.err.println("Connected!");
         boolean stop = false;
         do {
             BufferedReader tastiera = new BufferedReader(new InputStreamReader(System.in));

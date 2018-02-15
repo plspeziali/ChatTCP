@@ -13,6 +13,7 @@ public class ChatThread extends Thread{
 
     public ChatThread(Scanner in, PrintWriter out, Chatter owner) {
         this.in=in;
+        this.out=out;
         this.owner=owner;
     }
 
@@ -22,8 +23,10 @@ public class ChatThread extends Thread{
         while(true){
             if ((msg = in.nextLine()) != null) {
                 if(owner.getState()==true){
-                    if(msg.equals("end")==false){
+                    if(!msg.equals("end")){
                         owner.receiveMsg(msg);
+                    } else {
+                        break;
                     }
                 } else {
                     out.println("The other user is offline, he will get the message as soon as he gets online!");
