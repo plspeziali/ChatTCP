@@ -13,20 +13,16 @@ public class Server extends Chatter {
 
     public Server(int port) {
         this.name="Chatter1";
-        this.state = true;
+        this.state=true;
         this.colour="";
         this.port=port;
     }
     
-    public void avvia(){
+    public void start(){
         try{
             connection = new ServerSocket(port);
             dataSocket = connection.accept();
-            in = new Scanner(dataSocket.getInputStream());
-            out = new PrintWriter(dataSocket.getOutputStream());
-            ct = new ChatThread(in,out,this);
-            ct.start();
-            sendMsg();
+            configure();
         } catch(IOException e2){//
             System.err.println(e2);
         }

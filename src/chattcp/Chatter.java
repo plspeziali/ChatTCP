@@ -6,6 +6,8 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Chatter {
 
@@ -24,6 +26,17 @@ public class Chatter {
     public ChatThread ct;
     
     public String buffer;
+    
+    public void configure(){
+        try {
+            in = new Scanner(dataSocket.getInputStream());
+            out = new PrintWriter(dataSocket.getOutputStream());
+            ct = new ChatThread(in,out,this);
+            ct.start();
+        } catch (IOException ex) {
+            System.err.println("IOException error!");
+        }
+    }
         
     public void sendMsg() {
         boolean stop = false;
