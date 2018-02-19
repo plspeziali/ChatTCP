@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Chatter {
 
@@ -22,10 +24,6 @@ public class Chatter {
     
     public String echo;
     
-    public static boolean flagServer=false ;
-    
-    public static boolean flagClient=false;
-    
     public void configure(){
         buffer="";
         echo="";
@@ -34,7 +32,7 @@ public class Chatter {
     }
         
     public void sendMsg(boolean server) {
-        PrintWriter out = null;
+        PrintWriter out;
         try {
             out = new PrintWriter(dataSocket.getOutputStream(), true);
             System.err.println("Connected!");
@@ -61,6 +59,9 @@ public class Chatter {
                         break;
                     case "username":
                         setName();
+                        break;
+                    case "colour":
+                        setColour();
                         break;
                     default:
                         if(state==true){
@@ -104,11 +105,58 @@ public class Chatter {
     }
     
     public void setName(){
-        
+        System.out.println("Write your new name");
+        BufferedReader tastiera = new BufferedReader(new InputStreamReader(System.in));
+        String name = "";
+        boolean cont = false;
+        do{
+            try {
+                name = tastiera.readLine();
+            } catch (IOException ex) {
+                System.err.println("IOException error!");
+            }
+            if(!name.contains(":")){
+                cont = true;
+            } else {
+                System.out.println("Your name can't contain the : symbol, write another one!");
+            }
+        }
+        while(cont!=true);
+        this.name = name;
+        System.out.println("Name changed succesfully!");
     }
     
     public void setColour(){
-        
+        System.out.println("Choose your colour:\nBlack (default)\nRed (r)\nGreen (g)\nYellow (y)\nBlue (b)\nPurple (p)\nCyan (c)");
+        BufferedReader tastiera = new BufferedReader(new InputStreamReader(System.in));
+        String colour = "";
+        try {
+            colour = tastiera.readLine();
+        } catch (IOException ex) {
+            System.err.println("IOException error!");
+        }
+        switch(colour){
+            case "r":
+                this.colour="\u001B[31m";
+                break;
+            case "g":
+                this.colour="\u001B[32m";
+                break;
+            case "y":
+                this.colour="\u001B[33m";
+                break;
+            case "b":
+                this.colour="\u001B[34m";
+                break;
+            case "p":
+                this.colour="\u001B[35m";
+                break;
+            case "c":
+                this.colour="\u001B[36m";
+                break;
+            default:
+                this.colour="\u001B[0m";
+        }
     }
     
     public void setState(boolean state){
