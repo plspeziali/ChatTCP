@@ -10,6 +10,7 @@ public class Server extends Chatter {
     private ServerSocket connection;
 
     public Server(int port) {
+        super();
         this.name="Chatter1";
         this.state=true;
         this.colour="";
@@ -21,7 +22,7 @@ public class Server extends Chatter {
             connection = new ServerSocket(port);
             dataSocket = connection.accept();
             configure();
-            sendMsg();
+            sendMsg(true);
         } catch(IOException e2){//
             System.err.println(e2);
         }

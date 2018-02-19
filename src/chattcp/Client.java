@@ -12,6 +12,7 @@ public class Client extends Chatter {
     private final String address;
 
     public Client(int port, String address) {
+        super();
         this.name="Chatter2";
         this.state=true;
         this.colour="";
@@ -23,7 +24,7 @@ public class Client extends Chatter {
         try {
             dataSocket = new Socket(address,port);
             configure();
-            sendMsg();
+            sendMsg(false);
         } catch (ConnectException e){
             System.err.println("Can't reach server");
         }

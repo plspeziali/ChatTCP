@@ -5,6 +5,7 @@
         <group>
             <file>file:/home/paolo/NetBeansProjects/ChatTCP/src/chattcp/ChatThread.java</file>
             <file>file:/home/paolo/NetBeansProjects/ChatTCP/src/chattcp/Client.java</file>
+            <file>file:/home/paolo/NetBeansProjects/ChatTCP/src/chattcp/ChatTCPServer.java</file>
             <file>file:/home/paolo/NetBeansProjects/ChatTCP/src/chattcp/Chatter.java</file>
             <file>file:/home/paolo/NetBeansProjects/ChatTCP/src/chattcp/Server.java</file>
         </group>

@@ -20,15 +20,19 @@ public class Chatter {
     
     public String buffer;
     
+    public static boolean flagServer=false ;
+    
+    public static boolean flagClient=false;
+    
     public void configure(){
         ct = new ChatThread(this);
         ct.start();
     }
         
-    public void sendMsg() {
+    public void sendMsg(boolean server) {
         PrintWriter out = null;
         try {
-            out = new PrintWriter(dataSocket.getOutputStream());
+            out = new PrintWriter(dataSocket.getOutputStream(), true);
             System.err.println("Connected!");
             boolean stop = false;
             do {

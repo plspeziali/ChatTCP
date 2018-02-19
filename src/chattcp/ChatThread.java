@@ -16,11 +16,10 @@ public class ChatThread extends Thread{
     public void run() {
         try {
             Scanner in = new Scanner(owner.getSocket().getInputStream());
-            PrintWriter out = new PrintWriter(owner.getSocket().getOutputStream());
+            PrintWriter out = new PrintWriter(owner.getSocket().getOutputStream(), true);
             String msg = null;
             while(true){
-                System.out.println(msg);
-                if ((msg = in.nextLine()) != null) {
+                if ((msg = in.nextLine()) != null){
                     if(owner.getState()==true){
                         if(!msg.equals("end")){
                             owner.receiveMsg(msg);
