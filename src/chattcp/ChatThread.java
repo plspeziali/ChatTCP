@@ -19,17 +19,17 @@ public class ChatThread extends Thread{
             PrintWriter out = new PrintWriter(owner.getSocket().getOutputStream(), true);
             String msg = null;
             while(true){
-                if ((msg = in.nextLine()) != null){
-                    if(owner.getState()==true){
-                        if(!msg.equals("end")){
+                if(owner.getSocket().isConnected()){
+                    if ((msg = in.nextLine()) != null){
+                        if(owner.getState()==true){
                             owner.receiveMsg(msg);
                         } else {
-                            break;
+                            out.println("The other user is offline, he will get the message as soon as he gets online!");
+                            owner.receiveMsg(msg);
                         }
-                    } else {
-                        out.println("The other user is offline, he will get the message as soon as he gets online!");
-                        owner.receiveMsg(msg);
                     }
+                } else {
+                    break;
                 }
             }
         } catch (IOException ex) {
