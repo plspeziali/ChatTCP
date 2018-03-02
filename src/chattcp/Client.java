@@ -5,12 +5,21 @@ import java.net.ConnectException;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
+/**
+ *
+ * @author paolo
+ */
 public class Client extends Chatter {
     
     private final int port;
     
     private final String address;
 
+    /**
+     *
+     * @param port Porta del server a cui connettersi
+     * @param address Indirizzo del server a cui connettersi
+     */
     public Client(int port, String address) {
         super();
         this.name="Chatter2";
@@ -20,11 +29,15 @@ public class Client extends Chatter {
         this.address=address;
     }
     
+    /**
+     * Si connette al server, avvia la configurazione iniziale dell'utente
+     * e i metodi per chattare
+     */
     public void start(){
         try {
             dataSocket = new Socket(address,port);
             configure();
-            sendMsg(false);
+            sendMsg();
         } catch (ConnectException e){
             System.err.println("Can't reach server");
         }

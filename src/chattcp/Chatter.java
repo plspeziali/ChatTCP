@@ -5,25 +5,53 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
+/**
+ *
+ * @author paolo
+ */
 public class Chatter {
 
+    /**
+     * Nome dell'utente della chat
+     */
     public String name;
 
+    /**
+     * Stato dell utente (online/offline)
+     */
     public boolean state;
 
+    /**
+     * Colore dei messaggi dell'utente
+     */
     public String colour;
 
+    /**
+     * Socket per la trasmissione dei dati tra Client e Server
+     */
     public Socket dataSocket;
     
+    /**
+     * Thread per la ricezione dei messaggi
+     */
     public ChatThread ct;
     
+    /**
+     * Area di memeoria dove si memorizzano i messaggi che arrivano mentre
+     * l'utente è offline
+     */
     public String buffer;
     
+    /**
+     * Area di memeoria dove si memorizza l'ultimo messaggio ricevuto
+     */
     public String echo;
     
+    /**
+     * Metodo iniziale per la configurazione dell'utente:
+     * inizializza i buffer ed avvia un ChatThread
+     */
     public void configure(){
         buffer="";
         echo="";
@@ -31,7 +59,11 @@ public class Chatter {
         ct.start();
     }
         
-    public void sendMsg(boolean server) {
+    /**
+     * Metodo per inviare messaggi all'interlocutore o per
+     * eseguire i comandi possibili
+     */
+    public void sendMsg() {
         PrintWriter out;
         try {
             out = new PrintWriter(dataSocket.getOutputStream(), true);
@@ -47,6 +79,9 @@ public class Chatter {
                     case "end":
                         stop = true;
                         out.println(msg);
+                        break;
+                    case "help":
+                        printMan();
                         break;
                     case "online":
                         setState(true);
@@ -85,15 +120,36 @@ public class Chatter {
         }
     }
 
+    /**
+     * Metodo che viene richiamato dal ChatThread alla ricezione
+     * di un messaggio per stamparlo nello Standard Output
+     * @param msg Messaggio da stampare
+     */
     public void receiveMsg(String msg) {
         if(state == true){
-            System.out.println(msg);
+            System.out.println(msg+colour);
         } else {
             buffer = buffer.concat(msg+"\n");
         }
         echo = msg;
     }
+    
+    /**
+     * Stampa il manuale e i comandi possibili
+     */
+    public void printMan(){
+        System.out.println("Elenco dei comandi:\nhelp: View the manual\n"
+                + "end: Interrupt the communication\n"
+                + "online: Set ypour status as \"online\"\n"
+                + "offline: Set ypour status as \"offline\"\n"
+                + "echo: Send the last message received\n"
+                + "username: Set the username of the Chatter\n"
+                + "colour: Set the colour of the messages");
+    }
 
+    /**
+     * Chiude il Socket e le comunicazioni
+     */
     public void close() {
         if (dataSocket!=null) {
             try {
@@ -104,6 +160,9 @@ public class Chatter {
         }
     }
     
+    /**
+     * Permette all'utente di cambiare il suo username
+     */
     public void setName(){
         System.out.println("Write your new name");
         BufferedReader tastiera = new BufferedReader(new InputStreamReader(System.in));
@@ -126,6 +185,9 @@ public class Chatter {
         System.out.println("Name changed succesfully!");
     }
     
+    /**
+     * Permette all'utente di cambiare il suo colore
+     */
     public void setColour(){
         System.out.println("Choose your colour:\nBlack (default)\nRed (r)\nGreen (g)\nYellow (y)\nBlue (b)\nPurple (p)\nCyan (c)");
         BufferedReader tastiera = new BufferedReader(new InputStreamReader(System.in));
@@ -159,12 +221,16 @@ public class Chatter {
         }
     }
     
+    /**
+     * Permette all'utente di cambiare il suo stato
+     * @param state Valore dello stato da impostare
+     */
     public void setState(boolean state){
         if(state==this.state){
             System.out.println("You are already in this state!");
         } else if(state==true) {
             System.out.println("You are now online");
-            System.out.print(buffer);
+            System.out.print(buffer+colour);
             buffer="";
             this.state=state;
         } else if(state==false) {
@@ -173,10 +239,18 @@ public class Chatter {
         }
     }
     
+    /**
+     * Ritorna lo stato dell'utente
+     * @return state
+     */
     public boolean getState(){
         return state;
     }
     
+    /**
+     * Ritorna il dataSocket utilizzato nella comunicazione
+     * @return dataSocket
+     */
     public Socket getSocket(){
         return dataSocket;
     }
