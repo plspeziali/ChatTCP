@@ -1,14 +1,13 @@
 ### Corso di Tecnologie e progettazione di sistemi informatici e di telecomunicazioni - Classe 5BInf - a.s. 2017/2018
 
-## Relazione progetto: "Chat TCP"
+# Relazione progetto: "Chat TCP"
 ##### Studente: Paolo Speziali
 ##### Docente/i: Monica Ciuchetti, Gianni Mario Fiorucci
 
 ## Documento di Specifica dei Requisiti (Software Requirements Specification)
 ### 1. Introduzione e formulazione del problema
-In questa parte si deve descrivere in maniera generica il problema che deve essere risolto  dall’applicazione, cercando di evidenziare quali componenti saranno coinvolti. Serve     descrivere lo scopo del prodotto, la sua definizione, gli acronimi e le abbreviazioni usate,     oltre ad alcuni riferimenti utili per meglio comprendere l’applicativo da sviluppare. Si devono descrivere le funzioni dell’applicazione e le caratteristiche degli utenti, indicando     alcuni vincoli generali.
+In questa applicazione il mio obiettivo era di creare una Chat che sfruttasse la connessione TCP dove Client e Server avessero essenzialmente le stesse funzioni: quelle per comunicare tra di loro. L'applicazione è stata realizzata con il linguaggio Java e per la comunicazione tra Client e Server è stata utilizzata la tecnologia degli Stream Socket, forniti dalla libreria di Java "java.net.Socket". L'applicazione permette ai due host di chattare tra di loro e di poter inviare messaggi multipli mentre se ne possono ricevere altrettanti (grazie alla tecnologia dei Thread che ci permettono di poter inviare e ricevere messaggi nello stesso momento).
 ### 2. Descrizione dell’architettura dell’applicazione (componenti     hardware e software)
-In questa parte si dovrebbero riuscire ad individuare tutti i componenti hardware e software     coinvolti, cercando di evidenziare anche attraverso diagrammi e schemi la loro interazione.     Si devono indicare le architetture di riferimento e le tecnologie previste.
 #### 2.1 Attori
 Un attore specifica un ruolo assunto da un utente o altra entità che interagisce col sistema nell’ambito di un’unità di funzionamento (caso d’uso). Alcune domande guida per la loro individuazione potrebbero essere:
 Chi/cosa usa il sistema?
