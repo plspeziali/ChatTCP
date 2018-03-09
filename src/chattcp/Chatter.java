@@ -109,7 +109,7 @@ public class Chatter {
                             if(msg.contains("tom cruise")){
                                 msg = msg.replaceAll("tom cruise", "😎");
                             }
-                            out.println(colour+name+": "+msg);
+                            out.println(colour+name+": "+msg+"\u001B[0m");
                         } else {
                             System.out.println("You can't send messages while you are offline!");
                         }
@@ -127,7 +127,7 @@ public class Chatter {
      */
     public void receiveMsg(String msg) {
         if(state == true){
-            System.out.println(msg+colour);
+            System.out.println(msg);
         } else {
             buffer = buffer.concat(msg+"\n");
         }
