@@ -15,9 +15,14 @@ I casi d’uso sono consultabili [su questo documento](https://drive.google.com/
 ### 2.3 Diagramma dei casi d’uso
 Diagramma d'uso ancora da caricare
 ### 2.4 Vincoli e tecnologie usate
-La ecnologia necessaria per permettere il funzionamento dell'applicazione è semplicemente Java 8 (con la libreria java.net), installabile in ogni SO.
+La tecnologia necessaria per permettere il funzionamento dell'applicazione è semplicemente Java 8 (con la libreria java.net), installabile in ogni SO moderno.
 ### 2.5 Prototipo dell’interfaccia
-In questa sezione vengono presentati e descritti dei prototipi per l'interfaccia dell'applicazione. Questa fase consente di visualizzare come qualsiasi utente possa interagire con l’applicazione. E’ possibile anche far riferimento ai casi d’uso esaminati nei punti precedenti.
+L'interfaccia dell'applicazione è un semplice terminale che accetta sia messaggi da inviare all'interlocutore che comandi per modificare le impostazioni della chat, l'utente è in grado di visualizzare tutti i possibili comandi semplicemente scrivendo "help".
+
+![Interfaccia](https://i.imgur.com/RExYZpI.png)
+
+![Manuale](https://i.imgur.com/6XBHUUC.png)
+
 ## Documento di progettazione ed implementazione dell’applicazione
 ### 1. Diagramma delle classi
 ![ChatCPUML](https://i.imgur.com/coYHpmq.png)
@@ -38,6 +43,13 @@ Osserviamo che i test di unità possono essere implementati man mano che vengono
 ### Licenza d’uso
 GNU GPLv3.0
 ### Manuale d’uso
-Forse un giorno lo scriverò.
+Scrivi un messaggio da inviare all'interlocutore o digita uno dei seguenti comandi...
+help: Viusalizza il manuale
+end: Interrompi la comunicazione
+online: Passa allo stato in linea (in caso il proprio stato non lo sia)
+offline: Passa allo stato non in linea (in caso il proprio stato lo sia)
+echo: Reinvia l'ultimo messaggio ricevuto
+username: Permette di modificare il proprio nome utente
+colour: Permette di modificare il proprio colore dei messaggi
 
 
