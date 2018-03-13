@@ -68,6 +68,7 @@ public class Chatter {
         try {
             out = new PrintWriter(dataSocket.getOutputStream(), true);
             System.err.println("Connected!");
+            out.println(colour+name+": "+"Hello! I'm "+name+", nice to meet you!"+"\u001B[0m");
             boolean stop = false;
             String msg;
             do {
@@ -78,6 +79,7 @@ public class Chatter {
                         break;
                     case "end":
                         stop = true;
+                        out.println(colour+name+": Goodbye!"+"\u001B[0m");
                         out.println(msg);
                         break;
                     case "help":
@@ -138,7 +140,7 @@ public class Chatter {
      * Stampa il manuale e i comandi possibili
      */
     public void printMan(){
-        System.out.println("Elenco dei comandi:\nhelp: View the manual\n"
+        System.out.println("Commands list:\nhelp: View the manual\n"
                 + "end: Interrupt the communication\n"
                 + "online: Set ypour status as \"online\"\n"
                 + "offline: Set ypour status as \"offline\"\n"

@@ -15,7 +15,7 @@ I casi d’uso sono consultabili [su questo documento](https://drive.google.com/
 ### 2.3 Diagramma dei casi d’uso
 Diagramma d'uso ancora da caricare
 ### 2.4 Vincoli e tecnologie usate
-In questa parte si descrivono brevemente alcune ipotesi aggiuntive che spiegano alcune scelte progettuali, oltre che le tecnologie che si intendono usare come framework o software particolari a supporto dello sviluppo dell’applicazione.
+La ecnologia necessaria per permettere il funzionamento dell'applicazione è semplicemente Java 8 (con la libreria java.net), installabile in ogni SO.
 ### 2.5 Prototipo dell’interfaccia
 In questa sezione vengono presentati e descritti dei prototipi per l'interfaccia dell'applicazione. Questa fase consente di visualizzare come qualsiasi utente possa interagire con l’applicazione. E’ possibile anche far riferimento ai casi d’uso esaminati nei punti precedenti.
 ## Documento di progettazione ed implementazione dell’applicazione

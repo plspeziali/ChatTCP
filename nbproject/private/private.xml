@@ -2,6 +2,11 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/home/paolo/NetBeansProjects/ChatTCP/src/chattcp/ChatThread.java</file>
+            <file>file:/home/paolo/NetBeansProjects/ChatTCP/src/chattcp/ChatTCPClient.java</file>
+            <file>file:/home/paolo/NetBeansProjects/ChatTCP/src/chattcp/ChatTCPServer.java</file>
+            <file>file:/home/paolo/NetBeansProjects/ChatTCP/src/chattcp/Chatter.java</file>
+        </group>
     </open-files>
 </project-private>
