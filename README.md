@@ -13,7 +13,7 @@ Nonostante esistano un client e un server, nella progettazione dell'applicazione
 #### 2.2 Casi d’uso
 I casi d’uso sono consultabili [su questo documento](https://drive.google.com/open?id=1GGU1up_lbYSlS06jW5Pwf8_hnmFZwYke3NojD43c6Mw).
 ### 2.3 Diagramma dei casi d’uso
-Diagramma d'uso ancora da caricare
+![UseCase](https://i.imgur.com/nImjPKL.png)
 ### 2.4 Vincoli e tecnologie usate
 La tecnologia necessaria per permettere il funzionamento dell'applicazione è semplicemente Java 8 (con la libreria java.net), installabile in ogni SO moderno.
 ### 2.5 Prototipo dell’interfaccia
@@ -29,16 +29,7 @@ L'interfaccia dell'applicazione è un semplice terminale che accetta sia messagg
 ### 5. Commento del codice
 Il codice è dotato di un Javadoc già preparato.
 ### 7. Test dell’applicazione
-In questa sezione si descrivono i procedimenti, le strategie e le metodologie usate per organizzare,  pianificare, eseguire e gestire il testing del sistema software.
-Gli obiettivi che si vogliono raggiungere con il collaudo del sistema sono:
-1. Verificare che si siano implementate tutte le funzionalità dichiarate nella specifica dei requisiti
-2. Verificare che il software soddisfi alcuni requisiti di qualità
-
-Le tecniche utilizzate per collaudare il sistema sono principalmente due:
-1. Test di unità, che consente di verificare il corretto funzionamento delle funzioni di interfacciamento con il database
-2. Test funzionali, che basandosi esclusivamente sulle specifiche, permette di verificare il corretto funzionamento del sistema e la robustezza dello stesso.
-
-Osserviamo che i test di unità possono essere implementati man mano che vengono dichiarate le funzioni da testare, mentre i test funzionali devono essere implementati al termine della fase di sviluppo.
+Non è stato eseguito testing del software.
 ## Licenza e manuale d’uso
 ### Licenza d’uso
 GNU GPLv3.0
