@@ -34,13 +34,13 @@ Non è stato eseguito testing del software.
 ### Licenza d’uso
 GNU GPLv3.0
 ### Manuale d’uso
-Scrivi un messaggio da inviare all'interlocutore o digita uno dei seguenti comandi...
-help: Viusalizza il manuale
-end: Interrompi la comunicazione
-online: Passa allo stato in linea (in caso il proprio stato non lo sia)
-offline: Passa allo stato non in linea (in caso il proprio stato lo sia)
-echo: Reinvia l'ultimo messaggio ricevuto
-username: Permette di modificare il proprio nome utente
-colour: Permette di modificare il proprio colore dei messaggi
+Scrivi un messaggio da inviare all'interlocutore o digita uno dei seguenti comandi.
+help: Viusalizza il manuale;
+end: Interrompi la comunicazione;
+online: Passa allo stato in linea (in caso il proprio stato non lo sia);
+offline: Passa allo stato non in linea (in caso il proprio stato lo sia);
+echo: Reinvia l'ultimo messaggio ricevuto;
+username: Permette di modificare il proprio nome utente;
+colour: Permette di modificare il proprio colore dei messaggi;
 
 
