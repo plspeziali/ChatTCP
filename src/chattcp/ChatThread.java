@@ -2,6 +2,7 @@ package chattcp;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 /**
@@ -34,20 +35,23 @@ public class ChatThread extends Thread{
             Scanner in = new Scanner(owner.getSocket().getInputStream());
             PrintWriter out = new PrintWriter(owner.getSocket().getOutputStream(), true);
             String msg = null;
-            while(true){
-                if(owner.getSocket().isConnected()){
-                    if ((msg = in.nextLine()) != null){
+            boolean cont = true;
+            while(cont==true){
+                if ((msg = in.nextLine()) != null){
+                    if(msg.equals("end")==false){
                         if(owner.getState()==true){
                             owner.receiveMsg(msg);
                         } else {
                             out.println("The other user is offline, he will get the message as soon as he gets online!");
                             owner.receiveMsg(msg);
                         }
+                    } else {
+                        cont = false;
                     }
-                } else {
-                    break;
                 }
             }
+        } catch (NoSuchElementException nex) {
+            //
         } catch (IOException ex) {
             System.err.println("IOException error!");
         }
